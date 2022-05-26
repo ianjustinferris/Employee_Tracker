@@ -23,7 +23,14 @@ inquirer
         'View All Roles',
         'Add Role',
         'View All Departments',
-        'Add Department'
+        'Add Department',
+        'Update Employee Managers',
+        'View Employees By Manager',
+        'View Employees By Department',
+        'Delete Department',
+        'Delete Roles',
+        'Delete Employee',
+        'View Combined Salaries By Department'
       ],
     },
   ])
