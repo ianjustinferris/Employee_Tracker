@@ -3,11 +3,11 @@ var inquirer = require('inquirer');
 
 
 console.log(figlet.textSync('Employee Tracker', {
-    font: 'Isometric1',
-    horizontalLayout: 'default',
-    verticalLayout: 'default',
-    width: 1000,
-    whitespaceBreak: true
+  font: 'ANSI Shadow',
+  horizontalLayout: 'default',
+  verticalLayout: 'default',
+  width: 1000,
+  whitespaceBreak: true
 }));
 
 inquirer
