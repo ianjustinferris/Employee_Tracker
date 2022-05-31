@@ -28,3 +28,4 @@ role_id INT NOT NULL,
 manager_id INT NULL
 );
 
+module.exports = {employee_db, department, role, employee}

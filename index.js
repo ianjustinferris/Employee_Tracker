@@ -1,7 +1,17 @@
-var figlet = require('figlet');
-var inquirer = require('inquirer');
+const figlet = require('figlet');
+const inquirer = require('inquirer');
+const cTable = require('console.table');
+const mysql = require('mysql2');
 
+// Create the connection to database
+const con = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'rootroot',
+  database: 'employee_db'
+});
 
+// Render app title
 console.log(figlet.textSync('Employee Tracker', {
   font: 'ANSI Shadow',
   horizontalLayout: 'default',
@@ -10,6 +20,16 @@ console.log(figlet.textSync('Employee Tracker', {
   whitespaceBreak: true
 }));
 
+
+con.connect(function (err) {
+  if (err) throw err;
+  con.query("SELECT * FROM department", function (err, result, fields) {
+    if (err) throw err;
+    console.log(result);
+  });
+});
+
+// Initial menu prompt
 inquirer
   .prompt([
     {
