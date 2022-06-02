@@ -2,6 +2,7 @@ const figlet = require('figlet');
 const inquirer = require('inquirer');
 const cTable = require('console.table');
 const mysql = require('mysql2');
+const Queries = require('library/queries.js');
 
 // Create the connection to database
 const con = mysql.createConnection({
@@ -21,13 +22,15 @@ console.log(figlet.textSync('Employee Tracker', {
 }));
 
 
-con.connect(function (err) {
-  if (err) throw err;
-  con.query("SELECT * FROM department", function (err, result, fields) {
-    if (err) throw err;
-    console.log(result);
-  });
-});
+// con.connect(function (err) {
+//   if (err) throw err;
+//   con.query("SELECT * FROM department", function (err, result, fields) {
+//     if (err) throw err;
+//     console.table(result);
+//   });
+// });
+
+getAllDepartments()
 
 // Initial menu prompt
 inquirer
