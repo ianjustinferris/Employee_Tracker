@@ -1,20 +1,51 @@
-// Create class of functions 'Queries' to be called from index.js through mySQL server
-class Queries {
-    constructor(err, result, fields) {
-        this.err = err;
-        this.result = result;
-        this.fields = fields;
-    }
-}
+// Functions to access employees_db
 
-getAllDepartments = new Queries((err, result, fields) => {
+function viewAllEmployees() {
     con.connect(function (err) {
         if (err) throw err;
-        con.query("SELECT * FROM department", function (err, result, fields) {
-            if (err) throw err;
-            console.table(result);
-        });
+        console.log("Connected!");
     });
-});
+    console.log('jeronimo!!!!')
+    con.query('SELECT*FROM departments', function (err, result) {
+        console.table(result)
+    });
+}
+// addEmployee()
 
-module.exports(Queries)
+
+// updateEmployeeRole()
+
+
+// viewAllRoles()
+
+// addRole()
+
+
+// viewAllDepartments()
+
+
+// addDepartment()
+
+
+// updateEmployeeManagers()
+
+// viewEmployeesByManager()
+
+
+// viewEmployeesByDepartment()
+
+
+// deleteDepartment()
+
+// deleteRoles()
+
+// deleteEmployee()
+
+// salaries()
+
+
+
+
+
+
+module.exports.viewAllEmployees = viewAllEmployees;
