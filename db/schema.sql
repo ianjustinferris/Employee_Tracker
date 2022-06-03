@@ -17,20 +17,23 @@ CREATE TABLE roles (
 id INT NOT NULL AUTO_INCREMENT,
 title VARCHAR(30) NOT NULL,
 salary DECIMAL NOT NULL,
-FOREIGN KEY (departments_id) INT
+department_id INT,
+FOREIGN KEY (department_id) 
 REFERENCES departments(id),
 PRIMARY KEY (id)
 );
 
 /*Create employees table passing in (id) from roles as FOREIGN KEY*/
 CREATE TABLE employees (
-id INT  NOT NULL AUTO_INCREMENT PRIMARY KEY,
+id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 first_name VARCHAR(30) NOT NULL,
 last_name VARCHAR(30) NOT NULL,
-FOREIGN KEY (roles_id) INT
+role_id INT,
+FOREIGN KEY (role_id)
 REFERENCES roles(id),
-manager_id INT NOT NULL AUTO_INCREMENT
+manager_id INT, 
+FOREIGN KEY (manager_id) 
 REFERENCES employees(id)
-CONSTRAINT isManager CHECK (roles.title = manager) 
+-- CONSTRAINT isManager CHECK (roles.title = manager) 
 );
 
